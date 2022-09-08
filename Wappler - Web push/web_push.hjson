@@ -1,0 +1,63 @@
+[
+  {
+    type: 'web_push',
+    module : 'web_push',
+    action : 'web_push',
+    groupTitle : 'Web Push Notification',
+    groupIcon : 'fas fa-bell comp-images',
+    title : 'Generate Vapid keys (Only use once) - @@var(name)@@',
+    icon : 'fas fa-key comp-security',
+    usedModules : {
+			node: {
+				 "web-push": "^3.5.0"
+			}
+		},
+    dataPickObject: true,
+    properties : [
+      {
+        group: 'Options',
+        variables: [
+            { name: 'actionName', optionName: 'name', title: 'Name', type: 'static', defaultValue: '', 
+            help: 'Generate a public and private key with this output.'},
+            { name: 'actionName', optionName: 'name', title: 'Name', type: 'static', defaultValue: '', 
+            help: '1. Copy and paste the public and private keys into the web_push.js file in extensions/server_connect/web_push.js'},
+            { name: 'actionName', optionName: 'name', title: 'Name', type: 'static', defaultValue: '', 
+            help: '2. Copy and paste ONLY the public key into the client.js file in /public/client/client.js'},
+          { name: 'name', optionName: 'name', title: 'Name', type: 'text', required: false, defaultValue: 'query', help: 'Name for output'}
+        ]
+      },
+      {
+        group: 'Output',
+        variables: [
+          { name: 'output', optionName: 'output', title: 'Output', initValue: true, defaultValue: false, type: 'boolean'}
+        ]
+      }
+    ]
+  },
+  {
+    type: 'web_push_send',
+    module : 'web_push',
+    action : 'web_push_send',
+    groupTitle : 'Web Push Notification',
+    groupIcon : 'fas fa-bell comp-images',
+    title : 'Send Notification - @@var(name)@@',
+    icon : 'far fa-comment-dots comp-dialogs',
+    usedModules : {
+			node: {
+				 "web-push": "^3.5.0"
+			}
+		},
+    dataPickObject: true,
+    properties : [
+      {
+        group: 'Options',
+        variables: [
+          { name: 'Subscription', serverDataBindings: true, optionName: 'subscription', title: 'Subscription', type: 'text', required: true, defaultValue: '', help: 'Subscription'},
+          { name: 'Title', serverDataBindings: true, optionName: 'title', title: 'Title', type: 'text', required: true, defaultValue: '', help: 'Enter the title text for the notification'},
+          { name: 'Body', serverDataBindings: true, optionName: 'body', title: 'Body', type: 'text', required: true, defaultValue: '', help: 'Enter the body text for the notification'},
+          { name: 'Icon', serverDataBindings: true, optionName: 'icon', title: 'Icon', type: 'text', required: false, defaultValue: '', help: 'Enter the url of icon to display'}
+        ]
+      }
+    ]
+  }
+]
