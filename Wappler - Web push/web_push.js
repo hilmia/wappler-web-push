@@ -1,8 +1,7 @@
 // Add your public and private key here
 
-const vapidPublicKey =
-    "<Paste Public Key Here>";
-const vapidPrivateKey = "<Paste Private Key Here>";
+const vapidPublicKey = "<ENTER PUBLIC KEY HERE>";
+const vapidPrivateKey = "<ENTER PRIVATE KEY HERE>";
 
 //
 
